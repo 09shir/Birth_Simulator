@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <title>Birth Simulator</title>
+        <link rel="icon" type="image/png" sizes="200x200" href="doge.ico"> <!-- Links the favicon!-->
+
+        <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+        <link href="bootstrap-5.2.2-dist/css/bootstrap.min.css" rel="stylesheet"> <!-- for without flask -->
+        <!-- <link href="{{url_for('static', filename = 'bootstrap-5.2.2-dist/css/bootstrap.min.css')}}" rel="stylesheet"> for flask-->
+        <link href="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css" rel="stylesheet">
+        <script src="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js"></script>
+        <style>
+            body { margin: 0; padding: 0; }
+            #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+        </style>
+
+        <link rel="stylesheet" href="/static/style.css"> <!-- Links my stylesheet-->
+        <script src="/static/script.js"></script> <!-- Links my java script file-->
+    </head>
+    <body>
+        
+        <div id="map"></div>
+        <script>
+	        mapboxgl.accessToken = 'pk.eyJ1IjoicnNhMTgwIiwiYSI6ImNsYTN0NmMybTA3ZzEzeHJuZnZxdnF1Z2gifQ.ixfIa3hbREFZ60vlIbzGcA';
+            const map = new mapboxgl.Map({
+                container: 'map',
+                // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+                style: 'mapbox://styles/mapbox/streets-v11',
+                center: [0, 0],
+                zoom: 0.6,
+                projection: 'naturalEarth' // starting projection
+            });
+
+const el = document.createElement('div');
+  el.className = 'marker';
+        marker = new mapboxgl.Marker(el)
+</script>
+
+<section class="header">
+    <h1>Birth Simulator</h1>
+</section>
+
+<footer class="footer">
+    <h1 id="displayCountry"> You were born in: </h1>
+</footer>
+
+<div class="mx-sm-5 button">
+    <button type="submit" class="btn btn-primary" onclick="deleteMarker(marker); marker = nextBirth();">Reborn</button>
+</div>
+
+</body>
+</html>
+
